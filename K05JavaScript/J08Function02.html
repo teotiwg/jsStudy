@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        this.global ->전역변수
+        global -> 지역변수
+        키워드 this는 JS에서 윈도우 객체를 가리키는 것으로 전역변수 구분 시 사용
+        */
+        document.write("<h2>지역변수와 전역변수</h2>");
+        var globalVar = 100; // 전역변수 : 100
+
+        function conflict(globalVar){ // 매개변수
+            this.globalVar = globalVar * 2; // 전역변수 = 지역변수 * 2
+
+            document.write("함수 안 globalVat = " + globalVar + "<br/>"); // 지역
+            document.write("함수 안 this.globalVar = " + this.globalVar + "<br/>"); // 전역
+        }
+        conflict(globalVar); // 함수호출(전역변수 100)
+        document.write("함수 밖 globalVar = " + globalVar + "<br/>"); 
+            // 전역 200 (함수 안에서 변경됌)
+
+        function conflict2(localVar){ // 매개변수 200
+            globalVar = localVar + 50; // 충돌이 없으므로 전역변수 250 할당됌
+            localVar = localVar + 80; // 지역변수 280 할당됌
+
+            document.write("함수2 안 globalVar = " + globalVar + ", localVar = " + localVar + "<br/>");
+
+        }
+        conflict2(globalVar); // 전역변수 200을 인수로 전달
+
+        /*
+        localVar는 conflict2()의 지역변수로 선언되어, 
+        전역적으로는 선언된 적 없으므로 에러 발생
+        아래 부분은 주석으로 처리 후 실행
+        */
+        document.write("함수2 밖 globalVar = " + globalVar 
+                         //+ ", localVar = " + localVar + "<br/>");
+                         + ", localVar 선언된 적 없음<br/>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
