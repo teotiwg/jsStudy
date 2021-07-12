@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../common/jquery/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('#btn1').click(function(){
+                alert("input의 갯수는: " + $('input').length);
+                alert("문서내 모든 폼요소의 갯수는: "+ $(':input').length);
+            });
+            $('#btn2').click(function(){
+                str += "태그명: " + this.tagName;
+                str += "\n";
+                str += "Typed의 속성값: " + $(this).attr('type');
+                str += "\n";
+            });
+            alert(str);
+        });
+        $('#btn3').click(function(){
+            $(':text').css('backgroundColor', 'silver');
+            alert('#text1dml value값' + $('#text1').val());
+
+            var txtVal = $('#text2').val($('#text1').val());
+            alert("txt1의 내용이 txt2로 복사됌");
+        });
+        $('#btn4').click(function(){
+            var a = $(':text').length;
+            var b = $(':checkbox').length;
+            var c = $(':radio').length;
+            var d = $(':password').length;
+
+            console.log('text타입', a);
+            console.log('checkbox타입', b);
+            console.log('radio타입', c);
+            console.log('password타입', d);
+        });
+    </script>
+</head>
+<body>
+    <h2>form요소와 jQuery</h2>
+	
+	<input type="text" name="text1" id="text1" 
+		value="노트북" />
+	<br/>
+	<input type="text" name="text2" id="text2" value="" />
+	<br/>
+	<input type="password" name="passwd" />
+	<br/>
+	<textarea name="textarea" cols="50" rows="10">나는개발자다</textarea>
+	<br/>
+	<select name="select">
+		<option value="A">에이</option>
+		<option value="B">비이</option>
+		<option value="C">씨이</option>
+	</select>
+	<br/>
+	<input type="checkbox" name="checkbox" />나는체크박스다
+	<br/>
+	<input type="hidden" value="hidden" />여긴hidden박스
+	<br/>
+	<input type="submit" value="submit버튼" />
+	<br/>
+	
+	<div style="margin-top:50px;">
+		<button id="btn1">버튼1</button>
+		<button id="btn2">버튼2</button>
+		<button id="btn3">버튼3</button>
+		<button id="btn4">버튼4</button>
+	</div>
+	
+	
+	<h3>비밀번호 확인기능</h3>
+	<span id="msg"></span>
+	<br/>
+	암호입력 : <input type="password" id="pwd1" />
+	<br/>
+	암호확인 : <input type="password" id="pwd2" />
+	
+	
+	<h3>선택상자에서 선택된값을 텍스트상자에 출력하기</h3>
+	이메일 : <input type="text" id="email1" style="width:100px;"/>
+	@ <input type="text" id="email2" style="width:150px;" readonly />
+	<select id="selectEmail">
+		<option value="naver.com">네이버</option>
+		<option value="hanmail.net">다음(한메일)</option>
+		<option value="gmail.com">구글(gmail)</option>
+	</select>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+</body>
+</html>

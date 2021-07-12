@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<명함>
+	<성명 성="Tom" 이름="Cruise">톰크루즈</성명>
+	<직업>배우</직업>
+	<TEL>02-7979-4444</TEL>
+	<Mobile>010-1234-5678</Mobile>
+	<e-mail>mission@movie.com</e-mail>
+	<주소>서울특별시 금천구 가산동</주소>
+	<homepage>http://imf-team.com</homepage>
+	<copyright>KOSMO</copyright>
+</명함>

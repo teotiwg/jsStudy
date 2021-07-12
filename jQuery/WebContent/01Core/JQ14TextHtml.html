@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../common/jquery/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('#btn1').click(function(){
+                alert($('div').text());
+            });
+            $('#btn2').click(function(){
+                alert($('div').html());
+            });
+            $('#btn3').click(function(){
+                var txt1 = $('div:first').text();
+                alert(txt1);
+
+                $('div:first').text('<h2>new div1입니다.</h2>');
+            });
+
+            $('#btn4').click(function(){
+                var txt2 = $('div:last').prev().text();
+                alert(txt2);
+
+                $('div:last').prev().html('<h2>new div4</h2>');
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>text() / html() 메소드</h2>
+	
+	<div>div1입니다.</div>	
+	<div>div2입니다.</div>
+	<div>div3입니다.</div>
+	<div>div4입니다.</div>
+	
+	<div>
+		<button id="btn1">text()로 읽어오기</button>
+		<button id="btn2">html()로 읽어오기</button>
+		<button id="btn3">text()로 설정하기</button>
+		<button id="btn4">html()로 설정하기</button>
+	</div>
+
+</body>
+</html>

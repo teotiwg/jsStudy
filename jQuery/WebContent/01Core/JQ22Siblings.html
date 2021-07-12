@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('#btn1').click(function(){
+                $('li').css("backgroundColor", "white");
+                $("li.third-item").siblings().css("backgroundColor", "red");
+            });
+
+            $('#btn2').click(function(){
+                $("li").css("backgroundColor", "white");
+                $("li.third-item").next().css("backgroundCOlor", "red");
+            });
+
+            $('#btn3').click(function(){
+                $("li").css("backgroundColor","white");
+                $("li.third-item").nextAll().css("#here")
+                    .css("backgroundColor", "red");
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>임춘</li>
+        <li>오세제</li>
+        <li class="third-item">이안로</li>
+        <li>조통</li>
+        <li>황보형</li>
+        <li id="here">이담지</li>
+        <li>왕순</li>
+    </ul>
+    <input type="button" value="siblings()" id="btn1">
+    <input type="button" value="next()" id="btn2">
+    <input type="button" value="nextAll()" id="btn3">
+    <input type="button" value="nextUntil(#here)" id="btn4">
+
+</body>
+</html>

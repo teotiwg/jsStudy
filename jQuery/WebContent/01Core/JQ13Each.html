@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../common/jquery/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('#btn1').click(function(){
+                $('div').each(function(index){
+                    $(this).attr({'id':'div'+index,
+                        style:'border:1px solid red; width:100px; height:100px'
+                    })
+                });
+            });
+            $('#btn2').click(function(){
+                alert($('#div1').text());
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>each() 메소드</h2>
+	
+	<div>index:0 -> div1</div>
+	<div>index:1 -> div2</div>
+	<div>index:2 -> div3</div>
+	
+	<button id="btn1">div에 style적용하기</button>
+	<button id="btn2">index1의 text()</button>
+
+</body>
+</html>

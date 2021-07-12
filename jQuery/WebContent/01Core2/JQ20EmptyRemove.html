@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('button').click(function(){
+                if(this.id == "empty"){
+                    /*
+                    empty():
+                    선택한 요소의 콘텐츠 삭제
+                    단순 내용만 삭제되는 것으로
+                    text('') 혹은 html('') 와 동일
+                    CSS의 visibility:hidden과 동일
+                    */
+                    $('div').empty;
+                    // 엘리먼트가 남았으므로 내용 출력됌
+                    $('div').html('내용이 empty');
+                }
+                else{
+                    /*
+                    remove():
+                    선택된 요소 자체가 삭제됌
+                    CSS의 display:none과 동일
+                    */
+                    $('div').remove();
+                    // 엘리먼트 자체가 삭제되었으므로 내용은 출력되지 않음
+                    $('div').html('내용이 remove');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>empty() / remove() 메소드</h2>
+	
+	<button id="empty">Empty()호출하기</button>
+	<button id="remove">Remove()호출하기</button>	
+	
+	<div>div태그안의 텍스트</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../common/jquery/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#onMethod").on("click", function(){
+                alert("#onMethod버튼 클릭");
+            });
+
+            $('#offMethod').on('click', function(){
+                $('#onMethod').off("click");
+                alert('#onMethod의 클릭이벤트 해제');
+            })
+
+            $('#div1').on('click', function(){
+                alert('클릭이벤트 발생');
+                $(this).after("<div style='background-color:green;'>동적으로 생성한 div</div>");
+            });
+
+            $(".div2 button").on("click", function(){
+                $(".div2 ul").append("<li>추가된 li태그</li>");
+            });
+
+            $(".div2").on("click", "li", function(){
+                $(this).css("color", "red").css("fontSize", "2em");
+            });
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

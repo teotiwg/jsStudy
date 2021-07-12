@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('#addBtn').click(function(){
+                $('h1, p').addClass("blue");
+                $('#div1').addClass("important");
+            });
+            $('#removeBtn').click(function(){
+                $('h1, p').removeClass("blue");
+                $('#div1').removeClass("important");
+            });
+            $('#toggleBtn').click(function(){
+                $('h1, p').toggleClass("pink");
+                $('#div1').toggleClass("important");
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>h1태그</h1>
+    <p>paragraph 태그</p>
+    <div id="div1">div1입니다</div>
+    <div id="div2">div2입니다</div>
+
+    <button id="addBtn">addClass()</button>
+    <button id="removeBtn">removeClass()</button>
+    <button id="toggleBtn">toggleClass()</button>
+</body>
+</html>

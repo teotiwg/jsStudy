@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../common/jquery/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('div').each(function(index){
+                $(this).css({'width':'500px', 'height':'200px',
+                            'border':'solid red 2px'});
+
+            });
+
+        $('button').click(function(){
+            var size = parseInt($("#article1").css("fontSize"));
+
+            if($(this).text() == "기사늘리기"){
+                size += 2;
+            }
+            else{
+                size -= 2;
+            }
+            $('div').css("fontSize", size + "px");
+        });
+    });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
