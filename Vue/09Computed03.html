@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        $(function(){
+            var vue = new Vue({
+                el:'#app',
+                data:{
+                    title:'간단 회원인증폼 만들기',
+                    id:'',
+                    pass:''
+                },
+                computed:{
+                    login: function(){
+                        var loginMsg = this.id + "님, 인증 전입니다.";
+                        // 입력된 아이디, 패스워드 통해 회원 인증
+                        if(this.id == 'kosmo' && this.pass=='1234'){
+                            loginMsg = "<span style='color:red;'>" + this.id+ "님, 인증됐습니다. 환영합니다.</span>";
+                        }
+                        return loginMsg;
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        <h2>{{title}}</h2>
+        아이디: <input type="text" v-model="id">
+        패스워드: <input type="text" v-model="pass">
+        <!--
+            v-show디렉티브는 첫 렌더링 후 조건에 일치할 때만
+            해당 엘리먼트를 화면에 표시
+        -->
+        <span v-show="id!=''">{{login}}</span>
+    </div>
+</body>
+</html>

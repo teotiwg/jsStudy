@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        $(function(){
+            var vue = new Vue({
+                el:'#app',
+                data:{
+                    title:'이벤트처리와 method',
+                    amount:0, balance:0
+                },
+                methods:{
+                    deposit:function(){
+                        var amt = parseInt(this.amount);
+                        if(amt <= 0 ){
+                            alert("0보다 큰 값을 예금해야 합니다.");
+                        }else{
+                            this.balance += amt;
+                        }
+                    },
+                    withdraw:function(){
+                        var amt = parseInt(this.amount);
+                        if(amt <= 0){
+                            alert("0보다 큰 값을 인출 가능.");
+                        }
+                        else if(amt > this.balance){
+                            alert("잔고보다 많은 금액은 인출 불가");
+                        }
+                        else{
+                            this.balance -= amt;
+                        }
+                    },
+                    computed:{
+                        test:function(){
+                            console.log("computed테스트");
+                            return this.amount;
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        <h2>{{title}}</h2>
+        <p>
+            금액입력: <input type="text" v-model="amount">
+        </p>
+        <!--
+            method속성의 각 함수를 호출할 때는 소괄호부분은 생략 가능
+        -->
+        <p>
+            <button type='button' @click="deposit()">예금</button>
+            <button type='button' v-on:click="withdraw">출금</button>
+        </p>
+        <h3>현재잔고: {{balance}}</h3>
+
+        <h3>computed + 이벤트</h3>
+        <!--
+            이벤트에선 methods(함수)만 호출 가능
+            computed는 호출 불가
+        -->
+        <p>
+            <button type="button" v-on:click="test">computed테스트</button>
+        </p>
+
+    </div>
+</body>
+</html>
